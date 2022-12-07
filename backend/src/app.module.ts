@@ -6,12 +6,12 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'mariadb',
       host: 'localhost',
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'mysql',
+      database: 'mariadb',
       entities: [],
       synchronize: true,
     }),

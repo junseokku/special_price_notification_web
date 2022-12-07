@@ -2,14 +2,19 @@ version: "3"
 
 services:
   db:
-    container_name: mysql
-    image: mysql:8.0
+    container_name: mariadb
+    image: mariadb:10
     environment:
-      MYSQLDB_ROOT_PASSWORD: "root"
+      MARIADB_DATABASE: root
+      MARIADB_USER: root
+      MARIADB_PASSWORD: root
+      MARIADB_ROOT_PASSWORD: root
+      TZ: Asia/Seoul
     ports:
       - "3306:3306"
     command: # 명령어 실행
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     volumes:
-      - /Users/junseok/datadir:/var/lib/mysql
+      - "./mariadb/conf.d:/etc/mysql/conf.d"
+      - "./mariadb/data:/var/lib/mysql"
