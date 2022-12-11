@@ -9,11 +9,11 @@ export class MariadbConfigService implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       type: 'mariadb',
-      username: this.configService.get<string>('root'),
-      password: this.configService.get<string>('root'),
-      port: +this.configService.get<number>('3306'),
-      host: this.configService.get<string>('root'),
-      database: this.configService.get<string>('mariadb'),
+      username: this.configService.get<string>('DB_USER'),
+      password: this.configService.get<string>('DB_PASSWORD'),
+      port: +this.configService.get<number>('DB_PORT'),
+      host: this.configService.get<string>('DB_HOST'),
+      database: this.configService.get<string>('DB_SCHEMA'),
       entities: ['dist/**/**/*.entity{.ts,.js}'],
       // autoLoadEntities: true,
     };
